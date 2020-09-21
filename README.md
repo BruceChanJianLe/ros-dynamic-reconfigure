@@ -3,6 +3,14 @@
 This repository demonstrates the usage of dynamic reconfigure your ROS package.  
 Something to take note is that my package name has hyphen and dashes but when writing a cpp code you will not be allowed to use them. Therefore, follow the instructions carefully to change the hyphen and dashes to underscore.  
 
+## Usage
+
+Source your workspace and select your dynamic_reconfigure tab.  
+```bash
+source ~/my_ws/devel/setup.bash
+rosrun rqt_reconfigure rqt_reconfigure
+```
+
 ## cfg File
 
 **Step 1:**  
@@ -20,8 +28,8 @@ Remember your file name should not consist of hyphen or dashes, as they are not 
 ```python
 #!/usr/bin/env python
 
-# Define your package name here, due to the fact that hyphen and dashes is not used for variable name, use underscore instead.  
-PACKAGE="ros_dynamic_reconfigure"
+# Define your cpp namespace here, due to the fact that hyphen and dashes is not used for variable name, use underscore instead.  
+NAMESPACE="ros_dynamic_reconfigure"
 
 from dynamic_reconfigure.parameter_generator_catkin import *
 
@@ -51,7 +59,7 @@ gen.add("slider_points", double_t, 0, "Slider", 0.7, 0, 1)
 
 # Exit parameter generator
 # Package Name | Node Name | cfg File Name
-exit(gen.generate(PACKAGE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
+exit(gen.generate(NAMESPACE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
 ```
 
 **Step 3:**  
@@ -69,3 +77,29 @@ Include the generated config file in your node.
 ```cpp
 #include <ros-dynamic-reconfigure/RosDynamicReconfigureConfig.h>
 ```
+
+**Step 5:**
+Create a server handle and callback function.  
+```cpp
+    // Dynamic reconfigure handle
+    dynamic_reconfigure::Server<ros_dynamic_reconfigure::RosDynamicReconfigureConfig> server;
+
+    // Set callback function for dynamic reconfigure (using lambda)
+    server.setCallback(
+        [this](ros_dynamic_reconfigure::RosDynamicReconfigureConfig & config, uint32_t level)
+        {
+            ROS_INFO_STREAM(
+                "\nThe first drop-down: " << config.drop_down_menu <<
+                "\nTrue of false: " << ((config.true_or_false) ? "true" : "false") <<
+                "\nSlider value: " << config.slider_points << std::endl
+            );
+        });
+
+    // ROS spin (wait for server to enter callback)
+    ros::spin();
+
+```
+
+## Conclusion
+
+Here this is just a simple demostration of using the dynamic_reconfigure server, you can update your parameters here inside the lambda function. The lambda function is perferred as the boost::bind is considered to be slower. For more information please watch this [video](https://www.youtube.com/watch?v=ZlHi8txU4aQ).  

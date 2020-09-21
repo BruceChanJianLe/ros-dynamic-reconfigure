@@ -16,10 +16,6 @@ generate_dynamic_reconfigure_options(
 )
 
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES ros-dynamic-reconfigure
-#  CATKIN_DEPENDS dynamic_reconfigure roscpp rospy
-#  DEPENDS system_lib
 )
 
 include_directories(

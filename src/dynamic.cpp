@@ -29,6 +29,6 @@ void dynamic_class::start()
             );
         });
 
-    // RIS spin (wait for server to enter callback)
+    // ROS spin (wait for server to enter callback)
     ros::spin();
 }

@@ -13,6 +13,7 @@ touch cfg/RosDynamicReconfigure.cfg
 chmod a+x cfg/RosDynamicReconfigure.cfg
 ```
 
+**Step 2:**  
 Define your dynamic reconfiguration parameters in the cfg file.  
 Remember your file name should not consist of hyphen or dashes, as they are not supported by c++.  
 ```python
@@ -57,4 +58,11 @@ gen.add("slider_points", double_t, 0, "Slider", 0.7, 0, 1)
 # Exit parameter generator
 # Package Name | Node Name | cfg File Name
 exit(gen.generate(PACKAGE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
+```
+
+**Step 3:**  
+Allowing intellisense to work for ease of programming.  
+Edit CMakeLists.txt and catkin_make.  
+```cmake
+
 ```

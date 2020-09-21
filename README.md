@@ -1,6 +1,7 @@
 # ROS Dynamic Reconfigure
 
 This repository demonstrates the usage of dynamic reconfigure your ROS package.  
+Something to take note is that my package name has hyphen and dashes but when writing a cpp code you will not be allowed to use them. Therefore, follow the instructions carefully to change the hyphen and dashes to underscore.  
 
 ## cfg File
 
@@ -36,16 +37,9 @@ drop_down_menu_1 = gen.enum([
     gen.const("value_one", int_t, 1, "This is value one")
 ])
 
-drop_down_menu_2 = gen.enum([
-    gen.const("defaul_value", str_t, "default value", "default value"),
-    gen.const("hello_world", str_t, "hello world!", "hello"),
-    gen.const("goodbye_world", str_t, "goodbye world!", "goodbye")
-])
-
 # Add drop-down menu to window
 # Name | Type | Level | Description | Default | Min | Max | Values
 gen.add("drop_down_menu_1", int_t, 0, "Drop_down Menu 1", -1, -1, 1, edit_method=drop_down_menu_1)
-gen.add("drop_down_menu_2", str_t, 0, "Drop_down Menu 2", edit_method=drop_down_menu_2)
 
 # Add boolean option to window
 # Name | Type | Level | Description | Default | Min | Max | Values
@@ -64,5 +58,14 @@ exit(gen.generate(PACKAGE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
 Allowing intellisense to work for ease of programming.  
 Edit CMakeLists.txt and catkin_make.  
 ```cmake
+# Generate dynamic reconfigure parameters in the 'cfg' folder
+generate_dynamic_reconfigure_options(
+  cfg/RosDynamicReconfigure.cfg
+)
+```
 
+**Step 4:**  
+Include the generated config file in your node.  
+```cpp
+#include <ros-dynamic-reconfigure/RosDynamicReconfigureConfig.h>
 ```

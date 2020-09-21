@@ -29,7 +29,7 @@ Remember your file name should not consist of hyphen or dashes, as they are not 
 #!/usr/bin/env python
 
 # Define your cpp namespace here, due to the fact that hyphen and dashes is not used for variable name, use underscore instead.  
-NAMESPACE="ros_dynamic_reconfigure"
+CPPNAMESPACE="ros_dynamic_reconfigure"
 
 from dynamic_reconfigure.parameter_generator_catkin import *
 
@@ -59,7 +59,7 @@ gen.add("slider_points", double_t, 0, "Slider", 0.7, 0, 1)
 
 # Exit parameter generator
 # Package Name | Node Name | cfg File Name
-exit(gen.generate(NAMESPACE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
+exit(gen.generate(CPPNAMESPACE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
 ```
 
 **Step 3:**  

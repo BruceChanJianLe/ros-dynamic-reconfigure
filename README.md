@@ -54,5 +54,5 @@ gen.add("slider_points" double_t, 0 "Slider", 0.7, 0, 1)
 
 # Exit parameter generator
 # Package Name | Node Name | cfg File Name
-exit(gen.generate(PACKAGE, "ros-dynamic-reconfigure", "RosDynamicReconfigure"))
+exit(gen.generate(PACKAGE, "RosDynamicReconfigure", "RosDynamicReconfigure"))
 ```

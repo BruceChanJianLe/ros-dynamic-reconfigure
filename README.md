@@ -67,6 +67,7 @@ Allowing intellisense to work for ease of programming.
 Edit CMakeLists.txt and catkin_make.  
 ```cmake
 # Generate dynamic reconfigure parameters in the 'cfg' folder
+# Must be called before catkin_package()
 generate_dynamic_reconfigure_options(
   cfg/RosDynamicReconfigure.cfg
 )

@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 # Generate dynamic reconfigure parameters in the 'cfg' folder
+# Must be called before catkin_package()
 generate_dynamic_reconfigure_options(
   cfg/RosDynamicReconfigure.cfg
 )

@@ -39,11 +39,12 @@ gen = ParameterGenerator()
 
 # Populate drop-down menu content
 # Name | Type | Value | Description
-drop_down_menu_1 = gen.enum([
+drop_down_menu = gen.enum([
     gen.const("default_value", int_t, -1, "Not used"),
     gen.const("value_zero", int_t, 0, "This is value zero"),
-    gen.const("value_one", int_t, 1, "This is value one")
-])
+    gen.const("value_one", int_t, 1, "This is value one")],
+    "Drop_down Menu"
+)
 
 # Add drop-down menu to window
 # Name | Type | Level | Description | Default | Min | Max | Values

@@ -48,7 +48,7 @@ drop_down_menu = gen.enum([
 
 # Add drop-down menu to window
 # Name | Type | Level | Description | Default | Min | Max | Values
-gen.add("drop_down_menu_1", int_t, 0, "Drop_down Menu 1", -1, -1, 1, edit_method=drop_down_menu_1)
+gen.add("drop_down_menu_1", int_t, 0, "Drop_down Menu 1", -1, -1, 1, edit_method=drop_down_menu)
 
 # Add boolean option to window
 # Name | Type | Level | Description | Default | Min | Max | Values

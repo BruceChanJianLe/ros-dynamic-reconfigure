@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+    <!-- Launch rqt_reconfigure -->
+    <node name="rqt_dynamic_reconfigure_node" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" args=""/>
+
+    <!-- Launch our dynamic node -->
+    <node name="dynamic_node" pkg="ros-dynamic-reconfigure" type="dynamic_node" output="screen" args=""/>
+
+</launch>

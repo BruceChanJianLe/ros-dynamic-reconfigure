@@ -6,12 +6,16 @@
 #include <ros-dynamic-reconfigure/RosDynamicReconfigureConfig.h>
 
 #include <string>
+#include <memory>
 
 class dynamic_class
 {
     private:
         // ROS declaration
-        ros::NodeHandle nh_;
+        ros::NodeHandle private_nh_;
+
+        // Dynamic reconfigure handle
+        std::shared_ptr<dynamic_reconfigure::Server<ros_dynamic_reconfigure::RosDynamicReconfigureConfig>> server_;
 
     public:
         // Constructor and destructor

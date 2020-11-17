@@ -84,6 +84,10 @@ Include the generated config file in your node.
 Create a server handle and callback function.  
 ```cpp
     // Dynamic reconfigure handle
+    // For server that is using nodehandler, please make sure that the nodehandler is a private one
+    // ros::NodeHandle private_nh_("~");
+    // dynamic_reconfigure::Server<ros_dynamic_reconfigure::RosDynamicReconfigureConfig> server(private_nh_);
+    // For more detail please see the cpp code
     dynamic_reconfigure::Server<ros_dynamic_reconfigure::RosDynamicReconfigureConfig> server;
 
     // Set callback function for dynamic reconfigure (using lambda)

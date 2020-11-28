@@ -106,6 +106,12 @@ Create a server handle and callback function.
 
 ```
 
+**Step 6:**  
+Add dependecies to `library` or `executable` in CMakeLists.txt
+```cmake
+add_dependencies(dynamic_node ${PROJECT_NAME}_gencfg)
+```
+
 ## Conclusion
 
 Here this is just a simple demostration of using the dynamic_reconfigure server, you can update your parameters here inside the lambda function. The lambda function is perferred as the boost::bind is considered to be slower. For more information please watch this [video](https://www.youtube.com/watch?v=ZlHi8txU4aQ).  

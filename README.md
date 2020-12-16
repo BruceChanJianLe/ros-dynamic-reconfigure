@@ -111,6 +111,10 @@ Add dependecies to `library` or `executable` in CMakeLists.txt
 ```cmake
 add_dependencies(dynamic_node ${PROJECT_NAME}_gencfg)
 ```
+Another method is:
+```cmake
+add_dependencies(dynamic_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+```
 
 ## Conclusion
 

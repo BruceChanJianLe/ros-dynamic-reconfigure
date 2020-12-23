@@ -6,6 +6,8 @@
     <node name="rqt_dynamic_reconfigure_node" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" args=""/>
 
     <!-- Launch our dynamic node -->
-    <node name="dynamic_node" pkg="ros-dynamic-reconfigure" type="dynamic_node" output="screen" args=""/>
+    <node name="dynamic_node" pkg="ros-dynamic-reconfigure" type="dynamic_node" output="screen" args="">
+        <rosparam command="load" file="$(find ros-dynamic-reconfigure)/config/params.yaml"/>
+    </node>
 
 </launch>

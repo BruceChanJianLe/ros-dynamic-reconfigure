@@ -153,6 +153,14 @@ IndexError: list index out of range
 
 Note that most probably your nodehandler namespace have some error. Please check properly how your initiate your node handle and did you pass the correct node handle to the dynamic server.
 
+## Important Note
+
+Note that when the code run to the set callback function for dynamic server, it will run once the callback function. If you read your params before your setting your callback function it will overwrite it.
+
+Recommendation: Run `private_nh_.param()` after `dyn_srv_->setCallback()`.
+
+This is to aviod overwritting the params that you have loaded. If you wish to see the effect you can checkout to the `rosparam_version` branch.
+
 ## Conclusion
 
 Here this is just a simple demostration of using the dynamic_reconfigure server, you can update your parameters here inside the lambda function. The lambda function is perferred as the boost::bind is considered to be slower. For more information please watch this [video](https://www.youtube.com/watch?v=ZlHi8txU4aQ).  

@@ -17,6 +17,13 @@ class dynamic_class
         // Dynamic reconfigure handle
         std::shared_ptr<dynamic_reconfigure::Server<ros_dynamic_reconfigure::RosDynamicReconfigureConfig>> server_;
 
+        // Private variables
+        int menu_state_;
+        double points_;
+        bool true_false_state_;
+
+        int rate_;
+
     public:
         // Constructor and destructor
         dynamic_class();

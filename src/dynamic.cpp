@@ -9,11 +9,7 @@ dynamic_class::dynamic_class()
     true_false_state_(true),
     rate_(5)
 {
-    // Load params from server
-    private_nh_.param("menu_state", menu_state_, 0);
-    private_nh_.param("points", points_, 0.0);
-    private_nh_.param("true_false_state", true_false_state_, true);
-    private_nh_.param("rate", rate_, 5);
+    ;
 }
 
 
@@ -41,6 +37,12 @@ void dynamic_class::start()
                 "\nSlider value: " << config.slider_points << std::endl
             );
         });
+
+    // Load params from server
+    private_nh_.param("menu_state", menu_state_, 0);
+    private_nh_.param("points", points_, 0.0);
+    private_nh_.param("true_false_state", true_false_state_, true);
+    private_nh_.param("rate", rate_, 5);
 
     ros::Rate r(rate_);
     while(private_nh_.ok())

@@ -161,6 +161,10 @@ Recommendation: Run `private_nh_.param()` after `dyn_srv_->setCallback()`.
 
 This is to aviod overwritting the params that you have loaded. If you wish to see the effect you can checkout to the `rosparam_version` branch.
 
+## Running Error
+
+This happens why you want to use ROS timer and ROS dynamic reconfigure together in the same node. Basically, the ROS timer will not run at all. In this case, you should declare the ROS dynamic reconfigure after the ROS Timer. More detail of the issue can be found [here](https://answers.ros.org/question/364115/rostimer-wont-start-if-initialized-before-dynamic-reconfigure-server/) and [here](https://github.com/ros/ros_comm/issues/2085).
+
 ## Conclusion
 
 Here this is just a simple demostration of using the dynamic_reconfigure server, you can update your parameters here inside the lambda function. The lambda function is perferred as the boost::bind is considered to be slower. For more information please watch this [video](https://www.youtube.com/watch?v=ZlHi8txU4aQ).  

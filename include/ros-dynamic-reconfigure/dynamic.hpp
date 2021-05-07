@@ -23,6 +23,7 @@ class dynamic_class
         bool true_false_state_;
 
         int rate_;
+        bool first_time_;
 
     public:
         // Constructor and destructor
